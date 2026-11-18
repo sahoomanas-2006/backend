@@ -1,5 +1,7 @@
 import express from 'express'
 import { connectDB } from './config/db.js';
+import foodRouter from './routers/foodRoute.js';
+
 
 
 // app config
@@ -14,6 +16,7 @@ app.use(express.json());
 
 connectDB();
 
+app.use("/api/food",foodRouter)
 app.get("/",(req,res)=>{
     res.send("API is working");
 })
